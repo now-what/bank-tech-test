@@ -9,12 +9,14 @@ class Account
 
     def deposit(amount)
         @balance += amount
-        deposit_trasaction = Transaction.new(amount, DateTime.now)
+        deposit_transaction = Transaction.new(amount, DateTime.now)
+        @transaction_list << deposit_transaction
     end
 
     def withdraw(amount)
         @balance -= amount
         withdrawal_transaction = Transaction.new(amount, DateTime.now)
+        @transaction_list << withdrawal_transaction
     end
 
     def statement()

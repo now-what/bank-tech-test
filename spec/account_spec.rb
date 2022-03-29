@@ -17,6 +17,11 @@ describe Account do
             account.deposit(1000)
             expect(account.balance).to eq 1000
         end
+
+        it "should add the transaction to the transaction list" do
+            account.deposit(10)
+            expect(account.transaction_list).not_to eq []
+        end
     end
 
     describe ".withdraw" do
@@ -25,5 +30,14 @@ describe Account do
             account.withdraw(500)
             expect(account.balance).to eq 2500
         end
+
+        it "should add the transaction to the transaction list" do
+            account.deposit(800)
+            account.withdraw(500)
+            expect(account.transaction_list).not_to eq []
+            expect(account.transaction_list.length).to eq 2
+        end
     end
+
+    
 end
