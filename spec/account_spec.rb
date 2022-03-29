@@ -39,5 +39,15 @@ describe Account do
         end
     end
 
-    
+    describe ".statement" do
+        it "should take the transaction list and print it nicely" do
+            account.deposit(1000)
+            account.deposit(2000)
+            account.withdraw(500)
+            expect(account.statement).to eq "date || credit || debit || balance
+            31/12/2021 00:00 || || 500.00 || 2500.00
+            31/12/2021 00:00 || 2000.00 || || 3000.00
+            31/12/2021 00:00 || 1000.00 || || 1000.00"
+        end
+    end
 end
