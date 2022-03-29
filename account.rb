@@ -10,13 +10,13 @@ class Account
 
     def deposit(amount)
         @balance += amount
-        deposit_transaction = Transaction.new(DateTime.now, credit = amount, debit = nil, @balance)
+        deposit_transaction = Transaction.new(DateTime.now, credit = amount, debit = "", @balance)
         @transaction_list << deposit_transaction
     end
 
     def withdraw(amount)
         @balance -= amount
-        withdrawal_transaction = Transaction.new(DateTime.now, credit = nil, debit = amount, @balance)
+        withdrawal_transaction = Transaction.new(DateTime.now, credit = "", debit = amount, @balance)
         @transaction_list << withdrawal_transaction
     end
 
@@ -24,7 +24,7 @@ class Account
         header = "date || credit || debit || balance" + "\n"
         chronological_list = @transaction_list.reverse
         rows = chronological_list.map do
-            |x| x.date + " || " + x.credit.to_s + " || " + x.debit.to_s + " || " + x.balance.to_s
+            |x| x.date + " || " + (x.credit.to_s == "0.00" ? "" : x.credit.to_s) + " || " + (x.debit.to_s == "0.00" ? "" : x.debit.to_s) + " || " + x.balance.to_s
             end 
         header + rows.join("\n")
     end
