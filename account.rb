@@ -26,6 +26,7 @@ class Account
         rows = chronological_list.map do
             |x| x.date + " || " + (x.credit.to_s == "0.00" ? "" : x.credit.to_s) + " || " + (x.debit.to_s == "0.00" ? "" : x.debit.to_s) + " || " + x.balance.to_s
             end 
+        puts header + rows.join("\n")
         header + rows.join("\n")
     end
 
