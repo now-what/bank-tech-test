@@ -10,21 +10,21 @@ class Account
 
     def deposit(amount)
         @balance += amount
-        deposit_transaction = Transaction.new(DateTime.now, amount, @balance)
+        deposit_transaction = Transaction.new(DateTime.now, credit = amount, debit = nil, @balance)
         @transaction_list << deposit_transaction
     end
 
     def withdraw(amount)
         @balance -= amount
-        withdrawal_transaction = Transaction.new(DateTime.now, amount, @balance)
+        withdrawal_transaction = Transaction.new(DateTime.now, credit = nil, debit = amount, @balance)
         @transaction_list << withdrawal_transaction
     end
 
     def statement
-        
+        @transaction_list.map
         # @transaction_list
-        @transaction_list[0].date
-        @transaction_list[0].amount
+        # @transaction_list[0].date
+        # @transaction_list[0].amount
     end
 
 end 
