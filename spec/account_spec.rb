@@ -3,6 +3,10 @@ require "./account.rb"
 describe Account do
     
     let(:account) { Account.new }
+
+    before do
+        allow(DateTime).to receive(:now).and_return DateTime.new(2021,12,31)
+    end
     
     it "starts with no balance" do
         expect(account.balance).to eq 0

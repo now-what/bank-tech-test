@@ -12,12 +12,12 @@ describe Transaction do
 
     it "should have the credit property" do
         transaction = Transaction.new(DateTime.now, 1000, nil, 1000)
-        expect(transaction.credit).to eq 1000
+        expect(transaction.credit).to eq "1000.00"
     end
 
     it "should have the debit property" do
         transaction = Transaction.new(DateTime.now, nil, 1000, 1000)
-        expect(transaction.debit).to eq 1000
+        expect(transaction.debit).to eq "1000.00"
     end
 
     it "should hold the current time at creation" do
