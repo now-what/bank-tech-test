@@ -1,10 +1,10 @@
-require_relative "./account.rb"
+require "date"
 
 class Transaction
     attr_reader :amount, :date
 
     def initialize(amount, date)
         @amount = amount
-        @date = date
+        @date = date.strftime "%d/%m/%Y %H:%M"
     end
 end

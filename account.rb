@@ -6,14 +6,14 @@ class Account
         @balance = 0
     end
 
-    def deposit(amount, date)
+    def deposit(amount)
         @balance += amount
-        deposit_trasaction = Transaction.new(amount, date)
+        deposit_trasaction = Transaction.new(amount, DateTime.now)
     end
 
-    def withdraw(amount, date)
+    def withdraw(amount)
         @balance -= amount
-        withdrawal_transaction = Transaction.new(amount, date)
+        withdrawal_transaction = Transaction.new(amount, DateTime.now)
     end
 
 end 
