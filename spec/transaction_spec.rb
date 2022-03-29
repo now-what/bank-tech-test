@@ -5,7 +5,6 @@ require "date"
 describe Transaction do
     before do
         allow(DateTime).to receive(:now).and_return DateTime.new(2021,12,31)
-        p DateTime.now
     end
 
     it "should have the amount property" do
