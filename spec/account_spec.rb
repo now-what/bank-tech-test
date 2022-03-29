@@ -9,7 +9,7 @@ describe Account do
     end
 
     it "starts with an empty transaction list" do
-
+        expect(account.transaction_list).to eq []
     end
     
     describe ".deposit" do
