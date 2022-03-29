@@ -21,7 +21,7 @@ class Account
     end
 
     def statement
-        header = "date || credit || debit || balance\n"
+        header = "date || credit || debit || balance" + "\n"
         chronological_list = @transaction_list.reverse
         rows = chronological_list.map do
             |x| x.date + " || " + x.credit.to_s + " || " + x.debit.to_s + " || " + x.balance.to_s
