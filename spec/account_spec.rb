@@ -48,7 +48,7 @@ describe Account do
             account.deposit(1000)
             account.deposit(2000)
             account.withdraw(500)
-            expect(account.statement).to eq "date || credit || debit || balance\n31/12/2021 ||  || 500.00 || 2500.00\n31/12/2021 || 2000.00 ||  || 3000.00\n31/12/2021 || 1000.00 ||  || 1000.00"
+            expect {print(account.statement)}.to output("date || credit || debit || balance\n31/12/2021 ||  || 500.00 || 2500.00\n31/12/2021 || 2000.00 ||  || 3000.00\n31/12/2021 || 1000.00 ||  || 1000.00").to_stdout 
         end
     end
 end
