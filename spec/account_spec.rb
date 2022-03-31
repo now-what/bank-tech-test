@@ -5,7 +5,7 @@ describe Account do
     let(:account) { Account.new }
 
     before do
-        allow(DateTime).to receive(:now).and_return DateTime.new(2021,12,31)
+        allow(Date).to receive(:today).and_return Date.new(2021,12,31)
     end
     
     it "starts with no balance" do
@@ -48,7 +48,7 @@ describe Account do
             account.deposit(1000)
             account.deposit(2000)
             account.withdraw(500)
-            expect(account.statement).to eq "date || credit || debit || balance\n31/12/2021 00:00 ||  || 500.00 || 2500.00\n31/12/2021 00:00 || 2000.00 ||  || 3000.00\n31/12/2021 00:00 || 1000.00 ||  || 1000.00"
+            expect(account.statement).to eq "date || credit || debit || balance\n31/12/2021 ||  || 500.00 || 2500.00\n31/12/2021 || 2000.00 ||  || 3000.00\n31/12/2021 || 1000.00 ||  || 1000.00"
         end
     end
 end

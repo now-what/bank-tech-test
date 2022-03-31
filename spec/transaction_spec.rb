@@ -22,7 +22,7 @@ describe Transaction do
 
     it "should hold the current time at creation" do
         transaction = Transaction.new(DateTime.now, 1000, nil, 1000)
-        expect(transaction.date).to eq "31/12/2021 00:00"
+        expect(transaction.date).to eq "31/12/2021"
     end
 
     it "should hold the current account balance" do
